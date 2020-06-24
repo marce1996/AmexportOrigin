@@ -1,0 +1,15 @@
+C:\Users\Inets Test\Desktop\AmexOrigin\AmexportOrigin\Amexport\DAL\bin\Debug\DAL.dll.config
+C:\Users\Inets Test\Desktop\AmexOrigin\AmexportOrigin\Amexport\DAL\bin\Debug\DAL.dll
+C:\Users\Inets Test\Desktop\AmexOrigin\AmexportOrigin\Amexport\DAL\bin\Debug\DAL.pdb
+C:\Users\Inets Test\Desktop\AmexOrigin\AmexportOrigin\Amexport\DAL\bin\Debug\ENTITI.dll
+C:\Users\Inets Test\Desktop\AmexOrigin\AmexportOrigin\Amexport\DAL\bin\Debug\EntityFramework.dll
+C:\Users\Inets Test\Desktop\AmexOrigin\AmexportOrigin\Amexport\DAL\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Inets Test\Desktop\AmexOrigin\AmexportOrigin\Amexport\DAL\bin\Debug\ENTITI.pdb
+C:\Users\Inets Test\Desktop\AmexOrigin\AmexportOrigin\Amexport\DAL\bin\Debug\ENTITI.dll.config
+C:\Users\Inets Test\Desktop\AmexOrigin\AmexportOrigin\Amexport\DAL\bin\Debug\EntityFramework.xml
+C:\Users\Inets Test\Desktop\AmexOrigin\AmexportOrigin\Amexport\DAL\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Inets Test\Desktop\AmexOrigin\AmexportOrigin\Amexport\DAL\obj\Debug\DAL.csprojAssemblyReference.cache
+C:\Users\Inets Test\Desktop\AmexOrigin\AmexportOrigin\Amexport\DAL\obj\Debug\DAL.csproj.CoreCompileInputs.cache
+C:\Users\Inets Test\Desktop\AmexOrigin\AmexportOrigin\Amexport\DAL\obj\Debug\DAL.csproj.CopyComplete
+C:\Users\Inets Test\Desktop\AmexOrigin\AmexportOrigin\Amexport\DAL\obj\Debug\DAL.dll
+C:\Users\Inets Test\Desktop\AmexOrigin\AmexportOrigin\Amexport\DAL\obj\Debug\DAL.pdb

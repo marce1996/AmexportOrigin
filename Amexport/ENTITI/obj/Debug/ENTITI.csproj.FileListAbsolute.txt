@@ -1,0 +1,12 @@
+C:\Users\Inets Test\Desktop\AmexOrigin\AmexportOrigin\Amexport\ENTITI\bin\Debug\ENTITI.dll.config
+C:\Users\Inets Test\Desktop\AmexOrigin\AmexportOrigin\Amexport\ENTITI\bin\Debug\ENTITI.dll
+C:\Users\Inets Test\Desktop\AmexOrigin\AmexportOrigin\Amexport\ENTITI\bin\Debug\ENTITI.pdb
+C:\Users\Inets Test\Desktop\AmexOrigin\AmexportOrigin\Amexport\ENTITI\bin\Debug\EntityFramework.dll
+C:\Users\Inets Test\Desktop\AmexOrigin\AmexportOrigin\Amexport\ENTITI\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Inets Test\Desktop\AmexOrigin\AmexportOrigin\Amexport\ENTITI\bin\Debug\EntityFramework.xml
+C:\Users\Inets Test\Desktop\AmexOrigin\AmexportOrigin\Amexport\ENTITI\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Inets Test\Desktop\AmexOrigin\AmexportOrigin\Amexport\ENTITI\obj\Debug\ENTITI.csprojAssemblyReference.cache
+C:\Users\Inets Test\Desktop\AmexOrigin\AmexportOrigin\Amexport\ENTITI\obj\Debug\ENTITI.csproj.CoreCompileInputs.cache
+C:\Users\Inets Test\Desktop\AmexOrigin\AmexportOrigin\Amexport\ENTITI\obj\Debug\ENTITI.csproj.CopyComplete
+C:\Users\Inets Test\Desktop\AmexOrigin\AmexportOrigin\Amexport\ENTITI\obj\Debug\ENTITI.dll
+C:\Users\Inets Test\Desktop\AmexOrigin\AmexportOrigin\Amexport\ENTITI\obj\Debug\ENTITI.pdb
