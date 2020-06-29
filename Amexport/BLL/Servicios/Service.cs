@@ -16,49 +16,50 @@ namespace DAL.Servicios
         {
             _repository = repository;
         }
-        public Task<T> Add(T reg)
+        public virtual async Task<T> Add(T reg)
         {
-            throw new NotImplementedException();
+            return await _repository.Add(reg);
         }
 
-        public Task<bool> Any(Expression<Func<T, bool>> expr)
+        public virtual async Task<bool> Any(Expression<Func<T, bool>> expr)
         {
-            throw new NotImplementedException();
+            return await _repository.Any(expr);
         }
 
-        public Task Delete(int id)
+        public virtual async Task Delete(int id)
         {
-            throw new NotImplementedException();
+            var reg = await _repository.SearchById(id);
+            await _repository.Delete(reg);
         }
 
-        public Task Delete(T reg)
+        public virtual async Task Delete(T reg)
         {
-            throw new NotImplementedException();
+            await _repository.Delete(reg);
         }
 
-        public Task<T> Find(Expression<Func<T, bool>> expr)
+        public virtual async Task<T> Find(Expression<Func<T, bool>> expr)
         {
-            throw new NotImplementedException();
+            return await _repository.Find(expr);
         }
 
-        public Task<IReadOnlyList<T>> List()
+        public virtual async Task<IReadOnlyList<T>> List()
         {
-            throw new NotImplementedException();
+            return await _repository.List();
         }
 
-        public Task<List<T>> Search(Expression<Func<T, bool>> expr)
+        public virtual async Task<List<T>> Search(Expression<Func<T, bool>> expr)
         {
-            throw new NotImplementedException();
+            return await _repository.Search(expr);
         }
 
-        public Task<T> SearchById(int id)
+        public virtual async Task<T> SearchById(int id)
         {
-            throw new NotImplementedException();
+            return await _repository.SearchById(id);
         }
 
-        public Task Update(T reg)
+        public virtual async Task Update(T reg)
         {
-            throw new NotImplementedException();
+            await _repository.Update(reg);
         }
     }
 }

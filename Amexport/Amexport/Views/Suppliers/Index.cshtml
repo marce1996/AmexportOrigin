@@ -82,19 +82,31 @@
             },
             columns: [
                 {
-                    name: 'IdNivel', data: 'IdNivel', title: 'IdNivel',
+                    name: 'SupplierID', data: 'SupplierID', title: 'SupplierID',
                     searchable: false, visible: false
                 },
                 {
-                    name: 'Nivel', data: 'Nivel', title: 'Nivel',
+                    name: 'CompanyName', data: 'CompanyName', title: 'CompanyName',
                     sortable: true, searchable: true, "autoWidth": true
                 },
                 {
-                    name: 'CalificacionMin', data: 'CalificacionMin', title: 'Minimo',
+                    name: 'ContactName', data: 'ContactName', title: 'ContactName',
                     sortable: true, searchable: false, "autoWidth": true
                 },
                 {
-                    name: 'CalificacionMax', data: 'CalificacionMax', title: 'Maximo',
+                    name: 'ContactTitle', data: 'ContactTitle', title: 'ContactTitle',
+                    sortable: true, searchable: false, "autoWidth": true
+                },
+                {
+                    name: 'Address', data: 'Address', title: 'Address',
+                    sortable: true, searchable: false, "autoWidth": true
+                },
+                {
+                    name: 'City', data: 'City', title: 'City',
+                    sortable: true, searchable: false, "autoWidth": true
+                },
+                {
+                    name: 'Region', data: 'Region', title: 'Region',
                     sortable: true, searchable: false, "autoWidth": true
                 },
 
@@ -102,8 +114,8 @@
                     title: '<div class="text-center">Acciones</div>',
                     sortable: false,
                     render: function (data, type, row) {
-                        var edit = `<div class="text-center"><i class="fas fa-pen btn btn-info" onclick="AddEdit(${row.IdNivel});"></i>`;
-                        var del = `<i class='fas fa-trash btn btn-info' onclick='DeleteAsync(event);' data-id='${row.IdIdNivel}' data-element='${row.Nivel}'></i></div >`;
+                        var edit = `<div class="text-center"><i class="fas fa-pen btn btn-info" onclick="AddEdit(${row.SupplierID});"></i>`;
+                        var del = `<i class='fas fa-trash btn btn-info' onclick='DeleteAsync(event);' data-id='${row.SupplierID}' data-element='${row.Suppliers}'></i></div >`;
                         return `${edit}&nbsp;&nbsp;${del}`;
                     }
                 }

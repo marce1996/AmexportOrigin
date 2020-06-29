@@ -39,50 +39,54 @@ namespace DAL.Servicios
             }
         }
 
-        public Task<T> Add(T entity)
+        public virtual async Task<T> Add(T entity)
         {
-            throw new NotImplementedException();
+            EntitySet.Add(entity);
+            await context.SaveChangesAsync();
+            return entity;
         }
 
-        public Task<bool> Any(Expression<Func<T, bool>> expr)
+        public async Task<bool> Any(Expression<Func<T, bool>> expr)
         {
-            throw new NotImplementedException();
+            return await EntitySet.AnyAsync(expr);
         }
 
 
-        public Task Delete(T entity)
+        public async Task Delete(T entity)
         {
-            throw new NotImplementedException();
+            EntitySet.Remove(entity);
+            await context.SaveChangesAsync();
         }
 
         
 
-        public Task<T> Find(Expression<Func<T, bool>> expr)
+        public async Task<T> Find(Expression<Func<T, bool>> expr)
         {
-            throw new NotImplementedException();
+            return await EntitySet.FirstOrDefaultAsync(expr);
         }
 
       
 
-        public Task<List<T>> List()
+        public async Task<List<T>> List()
         {
-            throw new NotImplementedException();
+            return await EntitySet.ToListAsync();
         }
 
-        public Task<List<T>> Search(Expression<Func<T, bool>> expr)
+        public virtual async Task<List<T>> Search(Expression<Func<T, bool>> expr)
         {
-            throw new NotImplementedException();
+            return await EntitySet.Where(expr).ToListAsync();
         }
 
 
-        public Task<T> SearchById(int id)
+        public virtual async Task<T> SearchById(int id)
         {
-            throw new NotImplementedException();
+            return await EntitySet.FindAsync(id);
         }
 
-        public Task Update(T entity)
+        public virtual async Task Update(T entity)
         {
-            throw new NotImplementedException();
+            context.Entry(entity).State = EntityState.Modified;
+            await context.SaveChangesAsync();
         }
     }
 }

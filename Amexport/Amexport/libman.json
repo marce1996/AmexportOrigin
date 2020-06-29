@@ -11,10 +11,6 @@
       ]
     },
     {
-      "library": "jquery@3.5.1",
-      "destination": "lib/jquery/"
-    },
-    {
       "library": "datatables@1.10.20",
       "destination": "lib/datatables/"
     },
@@ -33,6 +29,28 @@
     {
       "library": "select2-bootstrap-theme@0.1.0-beta.10",
       "destination": "lib/select2-bootstrap-theme/"
+    },
+    {
+      "library": "jquery@3.5.1",
+      "destination": "lib/jquery/",
+      "files": [
+        "jquery.min.js"
+      ]
+    },
+    {
+      "library": "datatables@1.10.20",
+      "destination": "lib/datatables/",
+      "files": [
+        "js/jquery.dataTables.min.js",
+        "js/dataTables.bootstrap4.min.js",
+        "images/sort_asc.png",
+        "images/sort_asc_disabled.png",
+        "images/sort_both.png",
+        "images/sort_desc.png",
+        "images/sort_desc_disabled.png",
+        "css/dataTables.bootstrap4.min.css",
+        "css/jquery.dataTables.min.css"
+      ]
     }
   ]
 }

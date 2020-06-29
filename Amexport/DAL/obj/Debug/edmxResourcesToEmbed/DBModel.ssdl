@@ -30,21 +30,21 @@
       <PropertyRef Name="EmployeeID" />
     </Key>
     <Property Name="EmployeeID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="LastName" Type="varchar" MaxLength="50" Nullable="false" />
-    <Property Name="FirstName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="LastName" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="FirstName" Type="varchar" MaxLength="100" Nullable="false" />
     <Property Name="Title" Type="varchar" MaxLength="100" Nullable="false" />
     <Property Name="TitleOfCourtesy" Type="varchar" MaxLength="100" Nullable="false" />
-    <Property Name="BirthDate" Type="date" Nullable="false" />
-    <Property Name="HireDate" Type="date" Nullable="false" />
-    <Property Name="Address" Type="varchar" MaxLength="50" Nullable="false" />
-    <Property Name="City" Type="varchar" MaxLength="50" Nullable="false" />
-    <Property Name="Region" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="BirthDate" Type="datetime" Nullable="false" />
+    <Property Name="HireDate" Type="datetime" Nullable="false" />
+    <Property Name="Address" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="City" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="Region" Type="varchar" MaxLength="100" Nullable="false" />
     <Property Name="PostalCode" Type="int" Nullable="false" />
-    <Property Name="Country" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Country" Type="varchar" MaxLength="100" Nullable="false" />
     <Property Name="HomePhone" Type="int" Nullable="false" />
     <Property Name="Extension" Type="int" />
     <Property Name="Photo" Type="varbinary(max)" />
-    <Property Name="Notes" Type="varchar" MaxLength="50" />
+    <Property Name="Notes" Type="varchar" MaxLength="100" />
     <Property Name="ReportsTo" Type="int" />
   </EntityType>
   <EntityType Name="OrderDetails">

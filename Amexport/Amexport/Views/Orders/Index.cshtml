@@ -82,19 +82,27 @@
             },
             columns: [
                 {
-                    name: 'IdNivel', data: 'IdNivel', title: 'IdNivel',
+                    name: 'OrderID', data: 'OrderID', title: 'OrderID',
                     searchable: false, visible: false
                 },
                 {
-                    name: 'Nivel', data: 'Nivel', title: 'Nivel',
+                    name: 'OrderDate', data: 'OrderDate', title: 'OrderDate',
                     sortable: true, searchable: true, "autoWidth": true
                 },
                 {
-                    name: 'CalificacionMin', data: 'CalificacionMin', title: 'Minimo',
+                    name: 'RequiredDate', data: 'RequiredDate', title: 'RequiredDate',
                     sortable: true, searchable: false, "autoWidth": true
                 },
                 {
-                    name: 'CalificacionMax', data: 'CalificacionMax', title: 'Maximo',
+                    name: 'ShippedDate', data: 'ShippedDate', title: 'ShippedDate',
+                    sortable: true, searchable: false, "autoWidth": true
+                },
+                {
+                    name: 'ShippedDate', data: 'ShippedDate', title: 'ShippedDate',
+                    sortable: true, searchable: false, "autoWidth": true
+                },
+                {
+                    name: 'ShipVia', data: 'ShipVia', title: 'ShipVia',
                     sortable: true, searchable: false, "autoWidth": true
                 },
 
@@ -102,8 +110,8 @@
                     title: '<div class="text-center">Acciones</div>',
                     sortable: false,
                     render: function (data, type, row) {
-                        var edit = `<div class="text-center"><i class="fas fa-pen btn btn-info" onclick="AddEdit(${row.IdNivel});"></i>`;
-                        var del = `<i class='fas fa-trash btn btn-info' onclick='DeleteAsync(event);' data-id='${row.IdIdNivel}' data-element='${row.Nivel}'></i></div >`;
+                        var edit = `<div class="text-center"><i class="fas fa-pen btn btn-info" onclick="AddEdit(${row.OrderID});"></i>`;
+                        var del = `<i class='fas fa-trash btn btn-info' onclick='DeleteAsync(event);' data-id='${row.OrderID}' data-element='${row.Orders}'></i></div >`;
                         return `${edit}&nbsp;&nbsp;${del}`;
                     }
                 }

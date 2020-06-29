@@ -1,4 +1,5 @@
-﻿@model IEnumerable<ENTITI.Employees>
+﻿
+@model List<Amexport.Models.EmployeesModel>
 
 @{
     ViewBag.Title = "Index";
@@ -26,10 +27,7 @@
             <tr>
             </tr>
         </table>
-
-
     </div>
-
 </div>
 
 
@@ -50,6 +48,61 @@
     </div>
 </div>
 
+
+@using (Html.BeginForm("Create", "Employees", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <input type="file" name="postedFile" />
+    <input type="submit" value="Import" />
+}
+
+@if (Model.Count() > 0)
+{
+    <hr />
+    <table cellpadding="0" cellspacing="0">
+        <tr>
+            <th>Employee ID</th>
+            <th>Last Name</th>
+            <th>FirstName</th>
+            <th>Title</th>
+            <th>TitleOfCourtesy</th>
+            <th>BirthDate</th>
+            <th>HireDate</th>
+            <th>Address</th>
+            <th>City</th>
+            <th>Region</th>
+            <th>PostalCode</th>
+            <th>Country</th>
+            <th>HomePhone</th>
+            <th>Extension</th>
+            <th>Photo</th>
+            <th>Notes</th>
+            <th>ReportsTo</th>
+        </tr>
+
+        @foreach (var employees in Model)
+        {
+            <tr>
+                <td>@employees.EmployeeID</td>
+                <td>@employees.LastName</td>
+                <td>@employees.FirstName</td>
+                <td>@employees.Title</td>
+                <td>@employees.TitleOfCourtesy</td>
+                <td>@employees.BirthDate</td>
+                <td>@employees.HireDate</td>
+                <td>@employees.Address</td>
+                <td>@employees.City</td>
+                <td>@employees.Region</td>
+                <td>@employees.PostalCode</td>
+                <td>@employees.Country</td>
+                <td>@employees.HomePhone</td>
+                <td>@employees.Extension</td>
+                <td>@employees.Photo</td>
+                <td>@employees.Notes</td>
+                <td>@employees.ReportsTo</td>
+            </tr>
+        }
+    </table>
+}
 
 @section Scripts{
 
@@ -82,19 +135,39 @@
             },
             columns: [
                 {
-                    name: 'IdNivel', data: 'IdNivel', title: 'IdNivel',
+                    name: 'EmployeeID', data: 'EmployeeID', title: 'EmployeeID',
                     searchable: false, visible: false
                 },
                 {
-                    name: 'Nivel', data: 'Nivel', title: 'Nivel',
+                    name: 'LastName', data: 'LastName', title: 'LastName',
                     sortable: true, searchable: true, "autoWidth": true
                 },
                 {
-                    name: 'CalificacionMin', data: 'CalificacionMin', title: 'Minimo',
+                    name: 'FirstName', data: 'FirstName', title: 'FirstName',
                     sortable: true, searchable: false, "autoWidth": true
                 },
                 {
-                    name: 'CalificacionMax', data: 'CalificacionMax', title: 'Maximo',
+                    name: 'Title', data: 'Title', title: 'Title',
+                    sortable: true, searchable: false, "autoWidth": true
+                },
+                {
+                    name: 'TitleOfCourtesy', data: 'TitleOfCourtesy', title: 'TitleOfCourtesy',
+                    sortable: true, searchable: false, "autoWidth": true
+                },
+                {
+                    name: 'BirthDate', data: 'BirthDate', title: 'BirthDate',
+                    sortable: true, searchable: false, "autoWidth": true
+                },
+                {
+                    name: 'HireDate', data: 'HireDate', title: 'HireDate',
+                    sortable: true, searchable: false, "autoWidth": true
+                },
+                {
+                    name: 'Address', data: 'Address', title: 'Address',
+                    sortable: true, searchable: false, "autoWidth": true
+                },
+                {
+                    name: 'City', data: 'City', title: 'City',
                     sortable: true, searchable: false, "autoWidth": true
                 },
 
@@ -102,8 +175,8 @@
                     title: '<div class="text-center">Acciones</div>',
                     sortable: false,
                     render: function (data, type, row) {
-                        var edit = `<div class="text-center"><i class="fas fa-pen btn btn-info" onclick="AddEdit(${row.IdNivel});"></i>`;
-                        var del = `<i class='fas fa-trash btn btn-info' onclick='DeleteAsync(event);' data-id='${row.IdIdNivel}' data-element='${row.Nivel}'></i></div >`;
+                        var edit = `<div class="text-center"><i class="fas fa-pen btn btn-info" onclick="AddEdit(${row.EmployeeID});"></i>`;
+                        var del = `<i class='fas fa-trash btn btn-info' onclick='DeleteAsync(event);' data-id='${row.EmployeeID}' data-element='${row.LastName}'></i></div >`;
                         return `${edit}&nbsp;&nbsp;${del}`;
                     }
                 }
@@ -138,9 +211,5 @@
             SaveAsync(urisave, form, reloadTable);
 
         });
-
-
-
-
     </script>
 }

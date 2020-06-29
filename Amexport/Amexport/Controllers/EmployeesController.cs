@@ -1,12 +1,18 @@
-﻿using AutoMapper;
+﻿using Amexport.Models;
+using AutoMapper;
 using BLL.Interfaces;
 using ENTITI;
+using javax.xml.ws;
+using Microsoft.Graph;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
+
 
 namespace Amexport.Controllers
 {
@@ -28,7 +34,7 @@ namespace Amexport.Controllers
             ViewData["Controller"] = "Employees";
 
 
-            return View();
+            return View(new List<EmployeesModel>());
         }
 
         public async Task<JsonResult> ListAsync()
@@ -44,8 +50,9 @@ namespace Amexport.Controllers
             int recordsTotal = 0;
 
             var dat = await service.List();
+            
             var dataQ = dat.AsQueryable();
-
+            
             if (!string.IsNullOrEmpty(searchValue.ToString()) && searchValue.ToString().Length > 2)
             {
                 dataQ = dataQ.Where(m => m.LastName.IndexOf(searchValue.ToString(), StringComparison.OrdinalIgnoreCase) >= 0);
@@ -61,7 +68,7 @@ namespace Amexport.Controllers
                 recordsTotal,
                 data
             }, JsonRequestBehavior.AllowGet);
-
+            
         }
 
         // GET: Employees/Details/5
@@ -71,13 +78,87 @@ namespace Amexport.Controllers
         }
 
         // GET: Employees/Create
-        public ActionResult Create()
+        [HttpPost]
+        public ActionResult Create(HttpPostedFileBase postedFile)
         {
-            return View();
+            List<EmployeesModel> employees = new List<EmployeesModel>();
+            EmployeesModel employees1 = new EmployeesModel();
+            try
+            {                
+                   string filePath = string.Empty;
+                if (postedFile != null)
+                {
+                    string path = Server.MapPath("~/Uploads/");
+                    if (!System.IO.Directory.Exists(path))
+                    {
+                        System.IO.Directory.CreateDirectory(path);
+                    }
+                    filePath = path + Path.GetFileName(postedFile.FileName);
+                    string extension = Path.GetExtension(postedFile.FileName);
+                    postedFile.SaveAs(filePath);
+
+                    string csvData = System.IO.File.ReadAllText(filePath);
+
+                    foreach (string row in csvData.Split('\n'))
+                    {
+                        if (!string.IsNullOrEmpty(row))
+                        {
+                            employees1.EmployeeID = Convert.ToInt32(row.Split(',')[0]);
+                            employees1.LastName = row.Split(',')[1];
+                            employees1.FirstName = row.Split(',')[2];
+                            employees1.Title = row.Split(',')[3];
+                            employees1.TitleOfCourtesy = row.Split(',')[4];
+                            employees1.BirthDate = Convert.ToDateTime(row.Split(',')[5]);
+                            employees1.HireDate = Convert.ToDateTime(row.Split(',')[6]);
+                            employees1.Address = row.Split(',')[7];
+                            employees1.City = row.Split(',')[8];
+                            employees1.Region = row.Split(',')[9];
+                            employees1.PostalCode = Convert.ToInt32(row.Split(',')[10]);
+                            employees1.Country = row.Split(',')[11];
+                            employees1.HomePhone = Convert.ToInt32(row.Split(',')[12]);
+                            employees1.Extension = Convert.ToInt32(row.Split(',')[13]);
+                            employees1.Photo = Convert.FromBase64String(row.Split(',')[14]);
+                            employees1.Notes = row.Split(',')[15];
+                            employees1.ReportsTo = Convert.ToInt32(row.Split(',')[16]);
+                            employees.Add(employees1);
+
+
+                            /*employees.Add(new EmployeesModel
+                            {
+                                EmployeeID = Convert.ToInt32(row.Split(',')[0]),
+                                LastName = row.Split(',')[1],
+                                FirstName = row.Split(',')[2],
+                                Title = row.Split(',')[3],
+                                TitleOfCourtesy = row.Split(',')[4],
+                                BirthDate = Convert.ToDateTime(row.Split(',')[5]),
+                                HireDate = Convert.ToDateTime(row.Split(',')[6]),
+                                Address = row.Split(',')[7],
+                                City = row.Split(',')[8],
+                                Region = row.Split(',')[9],
+                                PostalCode = Convert.ToInt32(row.Split(',')[10]),
+                                Country = row.Split(',')[11],
+                                HomePhone = Convert.ToInt32(row.Split(',')[12]),
+                                Extension = Convert.ToInt32(row.Split(',')[13]),
+                                Photo = Convert.FromBase64String(row.Split(',')[14]),
+                                Notes = row.Split(',')[15],
+                                ReportsTo = Convert.ToInt32(row.Split(',')[16])
+                            });*/
+
+                        }
+                    }
+
+                }
+                return RedirectToAction("Index", employees);
+            } 
+            catch(Exception ex)
+            {
+                return RedirectToAction("Index", employees);
+            }
+            
         }
 
-        // POST: Employees/Create
-        [HttpPost]
+            // POST: Employees/Create
+            /*[HttpPost]
         public ActionResult Create(FormCollection collection)
         {
             try
@@ -90,7 +171,7 @@ namespace Amexport.Controllers
             {
                 return View();
             }
-        }
+        }*/
 
         // GET: Employees/Edit/5
         public ActionResult Edit(int id)
